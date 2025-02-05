@@ -1,0 +1,32 @@
+<%- include("partials/header.ejs") %>
+<body>
+  <%- include("partials/navbar.ejs") %>
+
+  <div class="container">
+    <hr>
+    <h1>Perguntas</h1>
+    <hr>
+    <a href="/perguntar" class="btn" style="background-color: #80c8ce;">Perguntar</a>
+    <hr>
+    <% if (perguntas && perguntas.length > 0) { %>
+      <% perguntas.forEach((pergunta) => { %>
+        <br>
+        <div class="card">
+          <div class="card-body">
+            <h3><h2><%= pergunta.titulo %></h2></h3>
+          </div>
+          <div class="card-footer">
+            <a href="/pergunta/<%= pergunta.id %>"><button class="btn" style="background-color: #80c8ce;">Responder</button></a>
+          </div>
+        </div>
+          
+      
+        
+      <% }); %>
+    <% } else { %>
+      <p>Nenhuma pergunta encontrada.</p>
+    <% } %>
+  </div>
+
+  <%- include("partials/footer.ejs") %>
+</body>
